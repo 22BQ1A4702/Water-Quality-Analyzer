@@ -18,7 +18,7 @@ B.Tech, CSE (IoT, Cybersecurity including Blockchain), VVIT Nambur
 Available in `water_quality_analyzer.ino`
 
 ## 📄 Report
-Full report: `Project_Report_InduPriya.pdf`
+Full report: `WATER QUALITY ANALYZER_Report.pdf`
 
 ## 📷 Circuit Diagram
 Add your diagram as `circuit_diagram.png`
