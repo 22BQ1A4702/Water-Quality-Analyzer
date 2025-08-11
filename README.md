@@ -104,7 +104,7 @@ Observe the LCD Output
 
 The LCD will display NTU: <value>
 
-If value ≤ 298 NTU, water is CLEAN
+If value > 150 NTU, water is CLEAN
 
-If value > 298 NTU, water is DIRTY
+If value < 150 NTU, water is DIRTY
 
