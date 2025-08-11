@@ -57,3 +57,32 @@ void loop() {
   
   delay(1000); // Wait 1 second before the next reading
 }
+
+🧪 How to Get the Output
+Install Arduino IDE
+Download from: https://www.arduino.cc/en/software
+
+Connect Your Arduino
+Use a USB cable to connect Arduino to your computer.
+
+Upload the Code
+
+Open Arduino IDE
+
+Paste the code above
+
+Select Tools → Board → Arduino Uno
+
+Select Tools → Port → [Your Arduino Port]
+
+Click Upload
+
+Observe the LCD Output
+
+The LCD will display NTU: <value>
+
+If value ≤ 298 NTU, water is CLEAN
+
+If value > 298 NTU, water is DIRTY
+
+
