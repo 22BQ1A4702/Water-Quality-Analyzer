@@ -45,7 +45,7 @@ void loop() {
   lcd.setCursor(0, 1);
   if (ntu >= 200) {
     lcd.print("Water Very Clean   ");
-  } else if (ntu >= 150 && ntu < 200) {
+  } else if (ntu >= 150 && ntu < 300) {
     lcd.print("Water Clean        ");
   } else if (ntu >= 100 && ntu < 150) {
     lcd.print("Water Slightly Dirty");
