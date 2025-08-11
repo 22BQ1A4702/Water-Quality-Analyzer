@@ -1,52 +1,81 @@
 # 💧 Water Quality Analyzer using Arduino
 
 ## 📌 Overview
-The **Water Quality Analyzer** is an IoT-based system that measures the turbidity (cloudiness) of water and displays the results on an **LCD display**.  
-It uses a turbidity sensor connected to an **Arduino UNO** and is useful for **monitoring water quality** in real time for environmental and industrial applications.
+The **Water Quality Analyzer** is an Arduino-based system that measures the turbidity (cloudiness) of water in **NTU** (Nephelometric Turbidity Units) and displays the results on a **16x2 LCD display**.  
+It uses a **turbidity sensor** connected to an Arduino UNO, making it a simple, low-cost tool for **real-time water quality monitoring** in domestic, industrial, and environmental applications.
 
 ---
 
 ## 🛠️ Features
-- Measures water turbidity in **NTU (Nephelometric Turbidity Units)**.
-- Displays real-time turbidity readings on a **16x2 LCD**.
-- Compact and low-cost design.
-- Can be integrated with IoT platforms for remote monitoring.
-
----
-
-## 📷 Final Output
-When everything is connected and the code is uploaded successfully, the LCD will show:
-- **Turbidity Value** in NTU.
-- Status messages like *"Water Clear"* or *"Water Turbid"* depending on quality.
+- 📏 **Measures turbidity** in NTU (0–300 range).
+- 📟 **LCD display** showing both numeric NTU values and water quality status.
+- 🔍 **Automatic classification** of water cleanliness.
+- 💡 Low-cost, easy-to-build, and compact design.
+- 🌐 Can be extended for IoT/cloud monitoring.
 
 ---
 
 ## 🧩 Components Required
-| Component            | Quantity |
-|----------------------|----------|
-| Arduino UNO          | 1        |
-| Turbidity Sensor     | 1        |
-| 16x2 LCD Display     | 1        |
-| Potentiometer (10kΩ) | 1        |
-| Breadboard           | 1        |
-| Jumper Wires         | As needed |
-| USB Cable            | 1        |
+| Component           | Quantity |
+|---------------------|----------|
+| Arduino UNO         | 1        |
+| Turbidity Sensor    | 1        |
+| 16x2 LCD Display    | 1        |
+| Potentiometer (10kΩ)| 1        |
+| Breadboard          | 1        |
+| Jumper Wires        | As needed |
+| USB Cable           | 1        |
 
 ---
 
 ## ⚙️ Circuit Connections
-1. **Turbidity Sensor**  
-   - Signal Pin → Arduino **A0**  
-   - VCC → **5V**  
-   - GND → **GND**  
 
-2. **LCD Display (16x2)**  
-   - RS → Pin 2  
-   - E → Pin 3  
-   - D4 → Pin 4  
-   - D5 → Pin 5  
-   - D6 → Pin 6  
-   - D7 → Pin 7  
-   - VCC → **5V**  
-   - GND → **GND**  
-   - Potentiometer middle pin → **V0** of LCD (contrast control)
+### Turbidity Sensor
+| Pin     | Arduino Pin |
+|---------|-------------|
+| Signal  | A0          |
+| VCC     | 5V          |
+| GND     | GND         |
+
+### LCD Display (16x2)
+| LCD Pin | Arduino Pin |
+|---------|-------------|
+| RS      | 12          |
+| E       | 11          |
+| D4      | 5           |
+| D5      | 4           |
+| D6      | 3           |
+| D7      | 2           |
+| VCC     | 5V          |
+| GND     | GND         |
+| V0      | Middle pin of Potentiometer |
+
+---
+
+## 📜 Arduino Code
+Code is available in [`water_quality_analyzer.ino`](water_quality_analyzer.ino).
+
+The **key logic**:
+- Sensor reading is **limited to a max of 208** for calibration.
+- NTU is mapped from **0–208 ADC reading → 300–0 NTU**.
+- Water quality is classified as:
+
+| NTU Value      | Water Quality Status      |
+|----------------|---------------------------|
+| ≥ 200          | Water Very Clean          |
+| 150 – 199      | Water Clean               |
+| 100 – 149      | Water Slightly Dirty      |
+| 50 – 99        | Water Dirty               |
+| < 50           | Water Very Dirty          |
+
+---
+
+## 📷 Output
+When connected and running:
+1. LCD shows **"Welcome To Turbidity Sensor"** for 3 seconds.
+2. LCD displays **Turbidity: <value> NTU**.
+3. LCD shows **Water Quality Status** based on NTU classification.
+
+Example:
+Turbidity: 298
+Water Very Clean
