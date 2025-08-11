@@ -21,7 +21,7 @@ Available in `water_quality_analyzer.ino`
 Full report: `WATER QUALITY ANALYZER_Report.pdf`
 
 ## 📷 Circuit Diagram
-Add your diagram as `circuit_diagram.png`
+Add your diagram as `circuit_diagram.jpg`
 
 ## 📊 Output
 - NTU < 10 → Water Very Clean
